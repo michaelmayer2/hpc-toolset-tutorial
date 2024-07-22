@@ -20,5 +20,7 @@ COPY slurm-prolog.sh /usr/local/bin/slurm-prolog.sh
 COPY slurm-epilog.sh /usr/local/bin/slurm-epilog.sh
 COPY submit_jobs.sh /usr/local/bin/submit_jobs.sh
 COPY example_job.sbatch /usr/local/bin/example_job.sbatch
+RUN cp /etc/slurm/cgroup.conf.example /etc/slurm/cgroup.conf && echo "CgroupPlugin=cgroup/v1" >> /etc/slurm/cgroup.conf
+
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["frontend"]

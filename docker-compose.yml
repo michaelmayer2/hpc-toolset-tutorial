@@ -103,6 +103,7 @@ services:
     command: ["slurmd"]
     hostname: cpn01
     container_name: cpn01
+    privileged: true
     networks:
       - compute
     volumes:
@@ -123,6 +124,7 @@ services:
     command: ["slurmd"]
     hostname: cpn02
     container_name: cpn02
+    privileged: true
     networks:
       - compute
     volumes:

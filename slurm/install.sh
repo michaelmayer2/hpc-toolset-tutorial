@@ -55,10 +55,10 @@ popd
 rm -rf /tmp/websockify*
 
 log_info "Compiling slurm version ${SLURM_VERSION}.."
-curl -o /tmp/slurm-${SLURM_VERSION}.tar.bz2 https://download.schedmd.com/slurm/slurm-${SLURM_VERSION}.tar.bz2
+curl -Lo /tmp/slurm-${SLURM_VERSION}.tar.gz https://github.com/SchedMD/slurm/archive/refs/tags/slurm-${SLURM_VERSION}.tar.gz
 pushd /tmp
-tar xf slurm-${SLURM_VERSION}.tar.bz2
-pushd slurm-${SLURM_VERSION}
+tar xf slurm-${SLURM_VERSION}.tar.gz
+pushd slurm-slurm-${SLURM_VERSION}
 ./configure --prefix=/usr --sysconfdir=/etc/slurm 
 make -j4
 make install
